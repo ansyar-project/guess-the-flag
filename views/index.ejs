@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flag Quiz</title>
   <link rel="stylesheet" href="/styles/main.css">
-   <!-- this is the script im talking about -->
-    <script
-      src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"
-      crossorigin="anonymous"
-    ></script>
 </head>
 
 <body id="app">
@@ -25,7 +20,9 @@
 
     </div>
 
-    <h1 id="countryFlag" class="twemoji"><%= question.flag %></h1>
+    <h1 id="countryFlag">
+      <%=question.flag %>
+    </h1>
     <div class="answer-container">
       <input type="text" name="answer" id="userInput" placeholder="Name the country" autofocus autocomplete="off">
 
@@ -45,8 +42,7 @@
       alert('Game over! Final best score: <%= locals.totalScore %>');
       document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
     }
-    // Call twemoji.parse on the element with the twemoji class
-      twemoji.parse(document.getElementById('countryFlag'));
+
 
   </script>
 </body>
