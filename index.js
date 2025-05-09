@@ -20,6 +20,7 @@ let quiz = [];
 async function loadQuiz() {
   const result = await pool.query("SELECT * FROM flags");
   quiz = result.rows;
+  console.log("Quiz loaded with", quiz.length, "questions");
   // nextQuestion();
 }
 
