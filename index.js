@@ -26,9 +26,9 @@ async function loadQuiz() {
 loadQuiz();
 
 // GET home page
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   totalCorrect = 0;
-  nextQuestion();
+  await nextQuestion();
   console.log(currentQuestion);
   res.render("index.ejs", { question: currentQuestion });
 });
@@ -38,16 +38,18 @@ app.get("/health", (req, res) => {
 });
 
 // POST a new post
-app.post("/submit", (req, res) => {
+app.post("/submit", async (req, res) => {
   let answer = req.body.answer.trim();
   let isCorrect = false;
-  if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
+  if (currentQuestion.name.toLowerCase() === answer.toLowerCase()) {
     totalCorrect++;
     console.log(totalCorrect);
     isCorrect = true;
   }
 
-  nextQuestion();
+  if (isCorrect) {
+    await nextQuestion();
+  }
   res.render("index.ejs", {
     question: currentQuestion,
     wasCorrect: isCorrect,
@@ -55,7 +57,7 @@ app.post("/submit", (req, res) => {
   });
 });
 
-function nextQuestion() {
+async function nextQuestion() {
   const randomCountry = quiz[Math.floor(Math.random() * quiz.length)];
   currentQuestion = randomCountry;
 }
