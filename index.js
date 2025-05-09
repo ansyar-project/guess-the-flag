@@ -18,13 +18,17 @@ console.log('Connecting to:', process.env.PG_HOST);
 let quiz = [];
 
 async function loadQuiz() {
-  const result = await pool.query("SELECT * FROM flags");
-  quiz = result.rows;
-  console.log("Quiz loaded with", quiz.length, "questions");
+  try {
+    const result = await pool.query("SELECT * FROM flags");
+    quiz = result.rows;
+    console.log("Quiz loaded with", quiz.length, "questions");
   // nextQuestion();
+  } catch (error) {
+    console.error("Error loading quiz:", error);
+  }
 }
 
-loadQuiz();
+await loadQuiz();
 
 // GET home page
 app.get("/", async (req, res) => {
