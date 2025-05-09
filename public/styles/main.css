@@ -7,15 +7,16 @@ body {
 }
 
 img {
+  display: block;
   margin: 20px auto;
-  width: 90px;
+  max-width: 100px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-width: 40%;
+  max-width: 40vh;
   height: 400px;
   margin: 15% auto;
   padding: 20px;
@@ -47,7 +48,7 @@ h3 {
 
 input {
   text-align: center;
-  width: 30%;
+  width: 50%;
   margin: 10px auto;
   padding: 10px;
   border: 1px solid #ccc;
