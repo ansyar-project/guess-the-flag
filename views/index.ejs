@@ -20,10 +20,9 @@
 
     </div>
 
-    <h1 id="countryFlag">
-      <%=question.flag %>
-    </h1>
+    
     <div class="answer-container">
+      <img src="https://flagcdn.com/48x36/<%= question.abb %>.png" alt="Flag">
       <input type="text" name="answer" id="userInput" placeholder="Name the country" autofocus autocomplete="off">
 
     </div>

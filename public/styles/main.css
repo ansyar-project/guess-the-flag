@@ -2,7 +2,13 @@ body {
   background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+img {
+  margin: 20px auto;
+  width: 90px;
 }
 
 .container {
@@ -29,6 +35,12 @@ h3 {
 }
 
 .answer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
   width: 100%;
   text-align: center;
 }
