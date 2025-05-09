@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { question: currentQuestion });
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // POST a new post
 app.post("/submit", (req, res) => {
   let answer = req.body.answer.trim();
